@@ -94,7 +94,7 @@ fields[:age]
 # To sort by name:
 fields.sort
 
-# To get a arrary of hash representations suitable to serialize:
+# To get an array of hash representations suitable to serialize:
 fields.to_a
 ```
 
