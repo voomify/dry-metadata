@@ -1,0 +1,5 @@
+require 'dry-types'
+require 'dry/metadata/version'
+require 'dry/metadata/fields'
+require 'dry/metadata/field'
+require 'dry/metadata/ast'
