@@ -1,3 +1,5 @@
+require 'pp'
+
 module Dry
   module Metadata
     module AST
@@ -35,6 +37,10 @@ module Dry
 
         def visit(rule_ast, field)
           __send__(:"visit_#{rule_ast.first}", rule_ast.last, field)
+        end
+
+        def visit_rule(rule_ast, field)
+          visit(rule_ast.last, field)
         end
 
         def visit_and(rule_ast, field)

@@ -3,20 +3,20 @@ module Dry
     include Dry::Types.module
 
     module TestClasses
-      class Simple < Types::Struct
+      class Simple < Struct
         attribute :name, Types::Strict::String
       end
 
-      class Optional < Types::Struct
+      class Optional < Struct
         attribute :name, Types::Strict::String.optional
       end
 
-      class MultipleTypes < Types::Struct
+      class MultipleTypes < Struct
         attribute :date_posted, Types::DateTime.optional |
                                 Types::Strict::String.optional
       end
 
-      class NestedStruct < Types::Struct
+      class NestedStruct < Struct
         attribute :nested_name, Simple
       end
     end

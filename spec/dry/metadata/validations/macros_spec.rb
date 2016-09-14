@@ -32,7 +32,7 @@ RSpec.describe Dry::Validation do
           expect(fields.first[:types]).to eq([:none?, :int?])
         end
         it 'has correct logic' do
-          expect(fields.first[:logic]).to eq([:or, [:none?], [:int?]])
+          expect(fields.first[:logic]).to eq([:if, :not, [:none?], [:int?]])
         end
       end
 
@@ -72,7 +72,7 @@ RSpec.describe Dry::Validation do
           expect(fields.first[:types]).to eq([:none?])
         end
         it 'has correct logic' do
-          expect(fields.first[:logic]).to eq([:or, [:none?], [:filled?]])
+          expect(fields.first[:logic]).to eq([:if, :not, [:none?], [:filled?]])
         end
       end
 
@@ -102,7 +102,7 @@ RSpec.describe Dry::Validation do
           expect(fields.last[:types]).to eq([:none?])
         end
         it 'password_confirmation logic' do
-          expect(fields.last[:logic]).to eq([:or, [:none?], [:filled?]])
+          expect(fields.last[:logic]).to eq([:if, :not, [:none?], [:filled?]])
         end
       end
     end

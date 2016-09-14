@@ -14,7 +14,9 @@ module Dry
 
           def initialize(validation)
             @rules_ast = explode_rules_ast(
-              validation.rules.map { |_, value| value.to_ast }
+              validation.rules.map do |_, value|
+                value.ast(nil)
+              end
             )
           end
 

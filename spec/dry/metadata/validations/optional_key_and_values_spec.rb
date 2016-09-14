@@ -38,7 +38,7 @@ RSpec.describe Dry::Validation do
           expect(fields.first[:types]).to eq([:none?, :int?])
         end
         it 'has correct logic' do
-          expect(fields.first[:logic]).to eq([:or, [:none?],
+          expect(fields.first[:logic]).to eq([:if, :not, [:none?],
                                               :and, [:int?], [:gt?, 18]])
         end
       end
