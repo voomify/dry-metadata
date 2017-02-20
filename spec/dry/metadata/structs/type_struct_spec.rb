@@ -13,11 +13,15 @@ module Dry
 
       class MultipleTypes < Struct
         attribute :date_posted, Types::DateTime.optional |
-                                Types::Strict::String.optional
+            Types::Strict::String.optional
       end
 
       class NestedStruct < Struct
         attribute :nested_name, Simple
+      end
+
+      class Array < Struct
+        attribute :array, Types::Strict::Array.member(Types::Strict::String)
       end
     end
 
@@ -81,6 +85,17 @@ module Dry
 
           it 'has correct logic' do
             expect(fields.first[:logic]).to eq([:and, [:hash?], [:schema?]])
+          end
+        end
+
+        describe TestClasses::Array do
+
+          let(:struct) do
+            TestClasses::Array
+          end
+
+          it 'has correct types' do
+            expect(fields.first[:types]).to eq([:array?,[:str?]])
           end
         end
       end

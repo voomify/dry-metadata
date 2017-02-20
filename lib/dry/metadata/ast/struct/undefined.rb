@@ -1,5 +1,5 @@
-require 'dry/logic/constants'
+require 'dry/core/constants'
 
 module Undefined
-  Undefined = Dry::Logic::Undefined
+  Undefined = Dry::Core::Constants::Undefined
 end

@@ -114,6 +114,7 @@ module Dry
         end
 
         def add_predicate!(field, predicate, attributes)
+          field[:pattern]=attributes[:regex] if predicate == :format?
           AST::Predicate.add!(field, predicate, attributes)
         end
 
